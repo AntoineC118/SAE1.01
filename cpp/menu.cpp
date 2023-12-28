@@ -23,17 +23,27 @@ bool isNumeric(const std::string& s) {
   return ((sz>0) && (s.size() == sz));
 }
 
+/*
 int getreply(){
     std::string result;
     std::cin>>result;
     std::string token;
-    int toreturn;
+    char toreturn;
     for(size_t i; i != result.size(); i++){
-        if (std::stoi(std::to_string(result[i])) >= 49 || std::stoi(std::to_string(result[i])) <= 55){
-          return std::stoi(std::to_string(result[i]));
+      std::cout<<result[i]<<std::endl;
+      toreturn = result[i];
+        if ( toreturn >= 49 || toreturn <= 55 ){
+          std::cout<<std::stoi(std::to_string(result[i]))<<std::endl;
+          return toreturn;
     return 0;
         }
     }
 }
+*/
 
+int getreply(){
+  int result;
+  std::cin>>result;
+  return result;
+}
 

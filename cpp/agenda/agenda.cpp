@@ -5,9 +5,13 @@
 namespace fs = std::filesystem;
 
 std::string askdesc(std::string what){
-    std::string result;
+    std::string result = "";
     std::cout<<"Entrer le nouveau "<<what<<" de l'agenda."<<std::endl;
+    if(what != "titre"){
+    do{
     std::cin>>result;
+    }while (result != ".");}
+    else std::cin>>result;
     return result;
 }
 
