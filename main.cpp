@@ -6,9 +6,9 @@ int main(){
     agenda newagenda;
     loadagenda(newagenda);
     showmenu();
-    std::cout<<"test"<<std::endl;
-    std::cout<<getreply()<<std::endl;
-/*  switch (getreply())
+    int pressed = getreply();
+    std::cout<<pressed<<std::endl;
+    switch (pressed)
     {
     case 49:
         modifytitle(newagenda);
@@ -35,6 +35,6 @@ int main(){
     default:
         std::cout<<"cancel"<<std::endl;
         break;
-    } */
+    }
     return 0;
 }

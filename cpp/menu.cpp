@@ -27,10 +27,10 @@ int getreply(){
     std::string result;
     std::cin>>result;
     std::string token;
+    int toreturn;
     for(size_t i; i != result.size(); i++){
-        token = result[i];
-        if (isNumeric(token)){
-            return std::stoi(std::to_string(result[i]));
+        if (std::stoi(std::to_string(result[i])) >= 49 || std::stoi(std::to_string(result[i])) <= 55){
+          return std::stoi(std::to_string(result[i]));
     return 0;
         }
     }
