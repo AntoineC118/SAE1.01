@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include <cstring>
 #include "../hpp/events.hpp"
 
 std::string getUID(std::size_t len){
@@ -45,3 +46,14 @@ void modifydescription(event &tomodify){
     changedescription(askdescription("description"), tomodify);
 }
 
+std::string askdate(std::string what){
+    std::string result = "";
+    std::cout<<"Entrer la date de "<<what<<" de l'événement."<<std::endl<<"Merci de respecter le format jj/mm/aaaa hh:mm"<<std::endl;
+    std::cin>>result;
+    return result;
+}
+
+date pushdate(std::string sdate){
+    date newdate;
+    return newdate;
+}
