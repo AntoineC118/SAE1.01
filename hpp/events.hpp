@@ -21,4 +21,6 @@ struct event{
 void modifytitle(event &);
 void modifydescription(event &);
 void setid(event &);
+void setstartdate(event &);
+void setenddate(event &);
 

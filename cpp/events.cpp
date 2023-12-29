@@ -2,6 +2,7 @@
 #include <vector>
 #include <random>
 #include <cstring>
+#include <string>
 #include "../hpp/events.hpp"
 
 std::string getUID(std::size_t len){
@@ -47,8 +48,8 @@ void modifydescription(event &tomodify){
 }
 
 std::string askdate(std::string what){
-    std::string result = "";
-    std::cout<<"Entrer la date de "<<what<<" de l'événement."<<std::endl<<"Merci de respecter le format jj/mm/aaaa hh:mm"<<std::endl;
+    std::string result;
+    std::cout<<"Entrer la date de "<<what<<" de l'événement."<<std::endl<<"Merci de respecter le format jj/mm/aaaa_hh:mm"<<std::endl;
     std::cin>>result;
     return result;
 }
@@ -63,3 +64,33 @@ date pushdate(std::string sdate){
     return newdate;
 }
 
+bool verifydate(date toverify){
+    return
+    (toverify.month <= 12) || 
+    (((toverify.month % 2 != 0) || (toverify.month <= 7)) && ((toverify.month % 2 == 0) || (toverify.month <= 8))) ||
+    (((toverify.year % 4) == 0 || (toverify.year % 100) != 0 || (toverify.month == 2)) ? toverify.day <= 29 : toverify.day <= 28) ||
+    (toverify.hour < 24) ||
+    (toverify.min < 60);
+}
+
+void setstartdate(event &tosetdate){
+    date toset;
+    toset = pushdate(askdate("début"));
+    if(verifydate(toset)){
+        tosetdate.startdate = toset;
+    }
+    else{
+        std::cout<<"Date invalide"<<std::endl;
+    }
+}
+
+void setenddate(event &tosetdate){
+    date toset;
+    toset = pushdate(askdate("fin"));
+    if(verifydate(toset)){
+        tosetdate.enddate = toset;
+    }
+    else{
+        std::cout<<"Date invalide"<<std::endl;
+    }
+}

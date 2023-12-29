@@ -23,6 +23,8 @@ int main(){
         setid(newevent);
         modifytitle(newevent);
         modifydescription(newevent);
+        setstartdate(newevent);
+        setenddate(newevent);
         break;
     case 52:
 
