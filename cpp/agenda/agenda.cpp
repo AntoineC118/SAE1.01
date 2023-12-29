@@ -38,3 +38,18 @@ void modifydescription(agenda &agd){
 void loadagenda(agenda &agd){
 
 }
+
+void displayagenda(agenda agd){
+    std::cout<<"Nom de l'agenda: "<<agd.title<<std::endl;
+    std::cout<<"Description de l'agenda: "<<agd.description<<std::endl;
+    std::cout<<"----------------"<<std::endl;
+    std::cout<<"Liste des événements:"<<std::endl;
+    for (event e:agd.events){
+        std::cout<<"ID de l'événement: "<<e.id<<std::endl;
+        std::cout<<"Titre: "<<e.title<<std::endl;
+        std::cout<<"Description: "<<e.description<<std::endl;
+        std::cout<<"Début: "<<e.startdate.day<<"/"<<e.startdate.month<<"/"<<e.startdate.year<<" "<<e.startdate.hour<<":"<<e.startdate.min<<std::endl;
+        std::cout<<"Fin: "<<e.enddate.day<<"/"<<e.enddate.month<<"/"<<e.enddate.year<<" "<<e.enddate.hour<<":"<<e.enddate.min<<std::endl;
+        std::cout<<"----------------"<<std::endl;
+    }   
+}

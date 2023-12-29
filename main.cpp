@@ -1,6 +1,5 @@
 #include <iostream>
 #include "hpp/menu.hpp"
-#include "hpp/events.hpp"
 #include "./hpp/agenda.hpp"
 
 int main(){
@@ -9,7 +8,6 @@ int main(){
     loadagenda(newagenda);
     showmenu();
     int pressed = getreply();
-    std::cout<<pressed<<std::endl;
     switch (pressed)
     {
     case 49:
@@ -17,7 +15,7 @@ int main(){
         modifydescription(newagenda);
         break;
     case 50:
-
+        displayagenda(newagenda);
         break;
     case 51:
         setid(newevent);
