@@ -2,11 +2,16 @@
 #include <ctime>
 
 struct event{
-    char id[8];
+    std::string id;
     std::string title;
     std::string description;
     std::tm startdate;
     std::tm enddate;
     
 };
+
+
+void modifytitle(event &);
+void modifydescription(event &);
+void setid(event &);
 

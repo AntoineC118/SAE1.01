@@ -14,7 +14,11 @@ std::string getUID(std::size_t len){
     return uid;
 }
 
-std::string askdesc(std::string what){
+void setid(event &tomodify){
+    tomodify.id = getUID(8);
+}
+
+std::string askdescription(std::string what){
     std::string result = "";
     std::cout<<"Entrer le nouveau "<<what<<" de l'événement."<<std::endl;
     if(what != "titre"){
@@ -30,7 +34,7 @@ void changetitle(std::string title, event &tomodify){
 }
 
 void modifytitle(event &tomodify){
-    changetitle(askdesc("titre"), tomodify);
+    changetitle(askdescription("titre"), tomodify);
 }
 
 void changedescription(std::string description , event &tomodify){
@@ -38,6 +42,6 @@ void changedescription(std::string description , event &tomodify){
 }
 
 void modifydescription(event &tomodify){
-    changedescription(askdesc("description"), tomodify);
+    changedescription(askdescription("description"), tomodify);
 }
 
