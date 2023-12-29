@@ -55,5 +55,11 @@ std::string askdate(std::string what){
 
 date pushdate(std::string sdate){
     date newdate;
+    newdate.day = stoi(std::to_string(sdate.at(0)))*10 + stoi(std::to_string(sdate.at(1)));
+    newdate.month = stoi(std::to_string(sdate.at(3)))*10 + stoi(std::to_string(sdate.at(4)));
+    newdate.year = stoi(std::to_string(sdate.at(6)))*1000 + stoi(std::to_string(sdate.at(7)))*100 + stoi(std::to_string(sdate.at(8)))*10 + stoi(std::to_string(sdate.at(9)));
+    newdate.hour = stoi(std::to_string(sdate.at(11)))*10 + stoi(std::to_string(sdate.at(12)));
+    newdate.min = stoi(std::to_string(sdate.at(14)))*10 + stoi(std::to_string(sdate.at(15)));
     return newdate;
 }
+
