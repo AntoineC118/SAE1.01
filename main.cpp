@@ -34,7 +34,7 @@ int main(){
 
         break;
     case 55:
-
+        return 0;
         break;
     default:
         std::cout<<"cancel"<<std::endl;
