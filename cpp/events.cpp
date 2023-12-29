@@ -54,17 +54,19 @@ std::string askdate(std::string what){
     return result;
 }
 
+
 date pushdate(std::string sdate){
     date newdate;
-    newdate.day = stoi(std::to_string(sdate.at(0)))*10 + stoi(std::to_string(sdate.at(1)));
-    newdate.month = stoi(std::to_string(sdate.at(3)))*10 + stoi(std::to_string(sdate.at(4)));
-    newdate.year = stoi(std::to_string(sdate.at(6)))*1000 + stoi(std::to_string(sdate.at(7)))*100 + stoi(std::to_string(sdate.at(8)))*10 + stoi(std::to_string(sdate.at(9)));
-    newdate.hour = stoi(std::to_string(sdate.at(11)))*10 + stoi(std::to_string(sdate.at(12)));
-    newdate.min = stoi(std::to_string(sdate.at(14)))*10 + stoi(std::to_string(sdate.at(15)));
+    newdate.day = atoi(&sdate.at(0));
+    newdate.month = atoi(&sdate.at(3));
+    newdate.year = atoi(&sdate.at(6));
+    newdate.hour = atoi(&sdate.at(11));
+    newdate.min = atoi(&sdate.at(14));
     return newdate;
 }
 
 bool verifydate(date toverify){
+    std::cout<<toverify.day<<"/"<<toverify.month<<"/"<<toverify.year<<" "<<toverify.hour<<":"<<toverify.min<<std::endl;
     return
     (toverify.month <= 12) || 
     (((toverify.month % 2 != 0) || (toverify.month <= 7)) && ((toverify.month % 2 == 0) || (toverify.month <= 8))) ||

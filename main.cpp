@@ -23,6 +23,7 @@ int main(){
         modifydescription(newevent);
         setstartdate(newevent);
         setenddate(newevent);
+        newagenda.events.push_back(newevent);
         break;
     case 52:
 
