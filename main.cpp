@@ -10,14 +10,14 @@ int main(){
     int pressed = getreply();
     switch (pressed)
     {
-    case 49:
+    case 1:
         modifytitle(newagenda);
         modifydescription(newagenda);
         break;
-    case 50:
+    case 2:
         displayagenda(newagenda);
         break;
-    case 51:
+    case 3:
         setid(newevent);
         modifytitle(newevent);
         modifydescription(newevent);
@@ -25,16 +25,16 @@ int main(){
         setenddate(newevent);
         newagenda.events.push_back(newevent);
         break;
-    case 52:
+    case 4:
 
         break;
-    case 53:
+    case 5:
 
         break;
-    case 54:
+    case 6:
 
         break;
-    case 55:
+    case 7:
         return 0;
         break;
     default:
