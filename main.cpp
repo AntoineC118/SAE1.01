@@ -1,6 +1,7 @@
 #include <iostream>
 #include "hpp/menu.hpp"
 #include "./hpp/agenda.hpp"
+#include "./hpp/save.hpp"
 
 int main(){
     agenda newagenda;
@@ -33,7 +34,7 @@ int main(){
 
             break;
         case 6:
-
+            saveagenda(newagenda);
             break;
         case 7:
             return 0;
