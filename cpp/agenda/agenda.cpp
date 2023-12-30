@@ -10,7 +10,7 @@ std::string askdesc(std::string what){
     std::cout<<"Entrer le nouveau "<<what<<" de l'agenda."<<std::endl;
     if(what != "titre"){
     do{
-    std::cin>>line;
+    std::getline(std::cin,line);
     line = line + "\n";
     result = result + line;
     }while (line != ".\n");
