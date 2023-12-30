@@ -6,11 +6,15 @@ namespace fs = std::filesystem;
 
 std::string askdesc(std::string what){
     std::string result = "";
+    std::string line = "";
     std::cout<<"Entrer le nouveau "<<what<<" de l'agenda."<<std::endl;
     if(what != "titre"){
     do{
-    std::cin>>result;
-    }while (result != ".");}
+    std::cin>>line;
+    line = line + "\n";
+    result = result + line;
+    }while (line != ".\n");
+    result.erase(result.size()-3, 3);}
     else std::cin>>result;
     return result;
 }
@@ -41,8 +45,8 @@ void loadagenda(agenda &agd){
 
 void displayagenda(agenda agd){
     std::cout<<"Nom de l'agenda: "<<agd.title<<std::endl;
-    std::cout<<"Description de l'agenda: "<<agd.description<<std::endl;
-    std::cout<<"----------------"<<std::endl;
+    std::cout<<"Description de l'agenda: "<<std::endl<<agd.description;
+    std::cout<<std::endl<<"----------------"<<std::endl;
     std::cout<<"Liste des événements:"<<std::endl;
     for (event e:agd.events){
         std::cout<<"ID de l'événement: "<<e.id<<std::endl;
