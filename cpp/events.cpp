@@ -72,10 +72,10 @@ date pushdate(std::string sdate){
 bool verifydate(date toverify){
     std::cout<<toverify.day<<"/"<<toverify.month<<"/"<<toverify.year<<" "<<toverify.hour<<":"<<toverify.min<<std::endl;
     return
-    (toverify.month <= 12) || 
-    (((toverify.month % 2 != 0) || (toverify.month <= 7)) && ((toverify.month % 2 == 0) || (toverify.month <= 8))) ||
-    (((toverify.year % 4) == 0 || (toverify.year % 100) != 0 || (toverify.month == 2)) ? toverify.day <= 29 : toverify.day <= 28) ||
-    (toverify.hour < 24) ||
+    (toverify.month <= 12) && 
+    (((toverify.month % 2 != 0) && (toverify.month <= 7)) || ((toverify.month % 2 == 0) && (toverify.month <= 8))) &&
+    (((toverify.year % 4) == 0 && (toverify.year % 100) != 0 && (toverify.month == 2)) ? toverify.day <= 29 : toverify.day <= 28) &&
+    (toverify.hour < 24) &&
     (toverify.min < 60);
 }
 
