@@ -7,4 +7,4 @@ clear :
 	rm -rf *.exe
 
 clear_agendas :
-	rm -rf *.agd
+	rm -rf agendas/*.agd
