@@ -5,7 +5,7 @@
 
 void saveagenda(agenda tosave){
     std::filesystem::path path;
-    path = "./" + tosave.title + ".agd";
+    path = "./agendas/" + tosave.title + ".agd";
     std::ofstream monfichier(path);
     monfichier<<tosave.title<<std::endl
     <<tosave.description<<std::endl;
@@ -16,4 +16,8 @@ void saveagenda(agenda tosave){
         <<e.startdate.day<<"/"<<e.startdate.month<<"/"<<e.startdate.year<<" "<<e.startdate.hour<<":"<<e.startdate.min<<std::endl
         <<e.enddate.day<<"/"<<e.enddate.month<<"/"<<e.enddate.year<<" "<<e.enddate.hour<<":"<<e.enddate.min<<std::endl;
     }
+}
+
+void loadagenda(agenda topushin){
+    
 }

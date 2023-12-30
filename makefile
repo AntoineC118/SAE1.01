@@ -5,4 +5,6 @@ all: ./cpp/menu.cpp main.cpp ./cpp/agenda/agenda.cpp ./cpp/events.cpp ./cpp/save
 clear : 
 	rm -rf *.o
 	rm -rf *.exe
+
+clear_agendas :
 	rm -rf *.agd
