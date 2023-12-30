@@ -3,6 +3,7 @@
 #include <memory>
 #include <cstring>
 #include <vector>
+#include <filesystem>
 
 const std::vector<std::string> options = {
   "(F01) - Modifier le titre et la description de l'agenda",
@@ -41,4 +42,18 @@ int getreply(){
   return -1;
 }
 
+std::filesystem::path getpathreply(){
+  std::filesystem::path toreturn;
+  std::string result;
+  std::cin>>result;
+  if(result.find_first_of("/")!=result.find_last_of("/")){
+    toreturn = result;
+    return toreturn;
+  }
+  toreturn = "./agendas" + result;
+  return toreturn;
+}
 
+void choosefolder(){
+  std::cout<<"Entrer le nom ou le chemin d'accès de votre fichier:"<<std::endl;
+}

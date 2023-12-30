@@ -25,11 +25,11 @@ std::string askdescription(std::string what){
     std::string line = "";
     std::cout<<"Entrer le nouveau "<<what<<" de l'événement."<<std::endl;
     if(what != "titre"){
-    do{
-    std::getline(std::cin,line);
-    line = line + "\n";
-    result = result + line;
-    }while (line != ".\n");
+        do{
+            std::getline(std::cin,line);
+            line = line + "\n";
+            result = result + line;
+        }while (line != ".\n");
     result.erase(result.size()-3, 3);}
     else std::cin>>result;
     return result;

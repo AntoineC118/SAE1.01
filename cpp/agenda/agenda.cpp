@@ -9,11 +9,11 @@ std::string askdesc(std::string what){
     std::string line = "";
     std::cout<<"Entrer le nouveau "<<what<<" de l'agenda."<<std::endl;
     if(what != "titre"){
-    do{
-    std::getline(std::cin,line);
-    line = line + "\n";
-    result = result + line;
-    }while (line != ".\n");
+        do{
+            std::getline(std::cin,line);
+            line = line + "\n";
+            result = result + line;
+        }while (line != ".\n");
     result.erase(result.size()-3, 3);}
     else std::cin>>result;
     return result;
@@ -39,10 +39,6 @@ void modifydescription(agenda &agd){
     changedescription(askdesc("description"), agd);
 }
 
-void loadagenda(agenda &agd){
-
-}
-
 void displayagenda(agenda agd){
     std::cout<<"Nom de l'agenda: "<<agd.title<<std::endl;
     std::cout<<"Description de l'agenda: "<<std::endl<<agd.description;
@@ -55,5 +51,5 @@ void displayagenda(agenda agd){
         std::cout<<"Début: "<<e.startdate.day<<"/"<<e.startdate.month<<"/"<<e.startdate.year<<" "<<e.startdate.hour<<":"<<e.startdate.min<<std::endl;
         std::cout<<"Fin: "<<e.enddate.day<<"/"<<e.enddate.month<<"/"<<e.enddate.year<<" "<<e.enddate.hour<<":"<<e.enddate.min<<std::endl;
         std::cout<<"----------------"<<std::endl;
-    }   
+    }
 }

@@ -6,7 +6,10 @@
 int main(){
     agenda newagenda;
     event newevent;
-    loadagenda(newagenda);
+    std::filesystem::path path = "";
+    choosefolder();
+    path = getpathreply();
+    loadagenda(newagenda,path);
     while (true){
         showmenu();
         int pressed = getreply();
@@ -34,7 +37,7 @@ int main(){
 
             break;
         case 6:
-            saveagenda(newagenda);
+            saveagenda(newagenda,path);
             break;
         case 7:
             return 0;
