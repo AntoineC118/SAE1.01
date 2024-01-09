@@ -55,6 +55,5 @@ void loadagenda(agenda &topushin, std::filesystem::path path){
         myfolder>>topushin.events[counter].enddate.hour;
         myfolder>>topushin.events[counter].enddate.min;
         counter = counter + 1;
-        std::cout<<topushin.title<<std::endl;
     }
 }
