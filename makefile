@@ -1,5 +1,5 @@
-all: ./cpp/menu.cpp main.cpp ./cpp/agenda/agenda.cpp ./cpp/events.cpp ./cpp/save.cpp
-	g++ -I./hpp -c ./cpp/menu.cpp main.cpp ./cpp/agenda/agenda.cpp ./cpp/events.cpp ./cpp/save.cpp
+all: ./src/menu.cpp main.cpp ./src/agenda/agenda.cpp ./src/events.cpp ./src/save.cpp
+	g++ -I./hpp -c ./src/menu.cpp main.cpp ./src/agenda/agenda.cpp ./src/events.cpp ./src/save.cpp
 	g++ -o SAE1.exe menu.o main.o agenda.o events.o	save.o
 
 clear : 
