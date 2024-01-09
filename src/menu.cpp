@@ -50,7 +50,7 @@ std::filesystem::path getpathreply(){
     toreturn = result;
     return toreturn;
   }
-  toreturn = "./agendas" + result;
+  toreturn = "./agendas/" + result;
   return toreturn;
 }
 

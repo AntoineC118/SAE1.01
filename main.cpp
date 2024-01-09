@@ -10,6 +10,7 @@ int main(){
     choosefolder();
     path = getpathreply();
     loadagenda(newagenda,path);
+    std::cout<<newagenda.title<<std::endl;
     while (true){
         showmenu();
         int pressed = getreply();
@@ -20,6 +21,7 @@ int main(){
             modifydescription(newagenda);
             break;
         case 2:
+            std::cout<<newagenda.title<<std::endl;
             displayagenda(newagenda);
             break;
         case 3:
