@@ -7,5 +7,6 @@ void showmenu();
 int getreply();
 void choosefolder();
 std::filesystem::path getpathreply();
+std::string getstringreply();
 
 #endif

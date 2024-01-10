@@ -37,11 +37,9 @@ void loadagenda(agenda &topushin, std::filesystem::path path){
     while (line != "."){
     std::getline(myfolder,line);
     topushin.description = topushin.description + line;
-    std::cout<<line<<std::endl;
     }
     std::string temp;
     while (!myfolder.eof()){
-        std::cout<<myfolder.eof()<<std::endl;
         myfolder >>topushout.id;
         myfolder >> topushout.title;
         topushout.description = "";

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <filesystem>
 #include "../../include/agenda.hpp"
+#include <string>
 
 namespace fs = std::filesystem;
 
@@ -51,5 +52,51 @@ void displayagenda(agenda agd){
         std::cout<<"Début: "<<e.startdate.day<<"/"<<e.startdate.month<<"/"<<e.startdate.year<<" "<<e.startdate.hour<<":"<<e.startdate.min<<std::endl;
         std::cout<<"Fin: "<<e.enddate.day<<"/"<<e.enddate.month<<"/"<<e.enddate.year<<" "<<e.enddate.hour<<":"<<e.enddate.min<<std::endl;
         std::cout<<"----------------"<<std::endl;
+    }
+}
+
+std::vector<int> searchevent(const std::vector<event> &tosearch, std::string title){
+    std::vector<int> toreturn;
+    for (size_t i; i <= tosearch.size(); i++){
+        std::cout<<tosearch[i].title;
+        if (tosearch[i].title == title){
+            toreturn.push_back(i);
+            std::cout<<tosearch[i].title;
+        }
+    }
+    return toreturn;
+}
+
+void deleteevent(agenda &agd, std::string title){
+    std::vector<int> posliste;
+    std::vector<event> todeleteevent;
+    todeleteevent = agd.events;
+    posliste = searchevent(todeleteevent, title);
+    int pos;
+    if (posliste.size() == 1){
+        pos = posliste[0];
+        todeleteevent.erase(todeleteevent.begin()+posliste[0]);
+    }
+    else if (posliste.size() == 0){
+        std::cout<<"Cet event n'existe pas."<<std::endl;
+        return;
+    }
+    else if (posliste.size() > 1){
+        std::cout<<"Ces events possèdent le même nom, le quel souhaité vous supprimer ?"<<std::endl;
+        int counter = 1;
+        std::string reply;
+        for(int i : posliste){
+            std::cout<<counter<<" "<<todeleteevent[i].title<<std::endl;
+            counter++;
+        }
+        std::cin>>reply;
+        for (int i; i <= counter; i++){
+            std::string tosearch = std::to_string(i);
+            if (reply.find(tosearch) > 0){
+                todeleteevent.erase(todeleteevent.begin() + posliste[i]);
+                agd.events = todeleteevent;
+                return;
+            }
+        }
     }
 }

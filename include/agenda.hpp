@@ -15,5 +15,6 @@ void modifytitle(agenda&);
 void loadagenda(agenda&);
 void modifydescription(agenda&);
 void displayagenda(agenda);
+void deleteevent(agenda&,std::string);
 
 #endif

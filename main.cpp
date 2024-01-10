@@ -11,7 +11,7 @@ int main(){
     path = getpathreply();
     if (path.extension() == ".agd")
         loadagenda(newagenda,path);
-    std::cout<<newagenda.title<<std::endl;
+    std::string title;
     while (true){
         showmenu();
         int pressed = getreply();
@@ -34,7 +34,8 @@ int main(){
             newagenda.events.push_back(newevent);
             break;
         case 4:
-
+            title = getstringreply();
+            deleteevent(newagenda,title);
             break;
         case 5:
 

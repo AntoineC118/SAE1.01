@@ -45,7 +45,8 @@ int getreply(){
 std::filesystem::path getpathreply(){
   std::filesystem::path toreturn;
   std::string result;
-  result = std::cin.get();
+  std::cin>>result;
+  std::cin.get();
   if(result.find_first_of("/")!=result.find_last_of("/")){
     toreturn = result;
     return toreturn;
@@ -56,4 +57,10 @@ std::filesystem::path getpathreply(){
 
 void choosefolder(){
   std::cout<<"Entrer le nom ou le chemin d'accès de votre fichier:"<<std::endl;
+}
+
+std::string getstringreply(){
+  std::string result;
+  std::cin>>result;
+  return result;
 }
