@@ -9,7 +9,8 @@ int main(){
     std::filesystem::path path = "";
     choosefolder();
     path = getpathreply();
-    loadagenda(newagenda,path);
+    if (path.extension() == ".agd")
+        loadagenda(newagenda,path);
     std::cout<<newagenda.title<<std::endl;
     while (true){
         showmenu();

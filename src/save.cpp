@@ -10,14 +10,14 @@ void saveagenda(agenda tosave, std::filesystem::path path){
     std::ofstream monfichier(path);
     monfichier<<tosave.title<<std::endl
     <<tosave.description<<std::endl
-    <<"."<<std::endl;
+    <<".";
     for(event e:tosave.events){
-        monfichier<<e.id<<std::endl
+        monfichier<<std::endl<<e.id<<std::endl
         <<e.title<<std::endl
         <<e.description<<std::endl
         <<"."<<std::endl
         <<e.startdate.day<<" "<<e.startdate.month<<" "<<e.startdate.year<<" "<<e.startdate.hour<<" "<<e.startdate.min<<std::endl
-        <<e.enddate.day<<" "<<e.enddate.month<<" "<<e.enddate.year<<" "<<e.enddate.hour<<" "<<e.enddate.min<<std::endl;
+        <<e.enddate.day<<" "<<e.enddate.month<<" "<<e.enddate.year<<" "<<e.enddate.hour<<" "<<e.enddate.min;
     }
 }
 
@@ -28,32 +28,41 @@ bool verifyfolder(std::filesystem::path path){
 }
 
 void loadagenda(agenda &topushin, std::filesystem::path path){
+    std::ofstream mytest("./agendas/test");
     std::ifstream myfolder(path);
+    event topushout;
     std::string line = "";
     myfolder>>topushin.title;
+    myfolder.ignore();
     while (line != "."){
     std::getline(myfolder,line);
     topushin.description = topushin.description + line;
+    std::cout<<line<<std::endl;
     }
-    int counter = 0;
+    std::string temp;
     while (!myfolder.eof()){
-        myfolder>>topushin.events[counter].id;
-        myfolder>>topushin.events[counter].title;
-        myfolder.ignore();
+        std::cout<<myfolder.eof()<<std::endl;
+        myfolder >>topushout.id;
+        myfolder >> topushout.title;
+        topushout.description = "";
+        line = "";
         while (line != "."){
             std::getline(myfolder,line);
-            topushin.events[counter].description = topushin.events[counter].description + line;
+            topushout.description = topushout.description + line;
+            mytest<<line<<std::endl;
         }
-        myfolder>>topushin.events[counter].startdate.day;
-        myfolder>>topushin.events[counter].startdate.month;
-        myfolder>>topushin.events[counter].startdate.year;
-        myfolder>>topushin.events[counter].startdate.hour;
-        myfolder>>topushin.events[counter].startdate.min;
-        myfolder>>topushin.events[counter].enddate.day;
-        myfolder>>topushin.events[counter].enddate.month;
-        myfolder>>topushin.events[counter].enddate.year;
-        myfolder>>topushin.events[counter].enddate.hour;
-        myfolder>>topushin.events[counter].enddate.min;
-        counter = counter + 1;
+        myfolder>>topushout.startdate.day;
+        myfolder>>topushout.startdate.month;
+        myfolder>>topushout.startdate.year;
+        myfolder>>topushout.startdate.hour;
+        myfolder>>topushout.startdate.min;
+        myfolder>>topushout.enddate.day;
+        myfolder>>topushout.enddate.month;
+        myfolder>>topushout.enddate.year;
+        myfolder>>topushout.enddate.hour;
+        myfolder>>topushout.enddate.min;
+        topushin.events.push_back(topushout);
+        std::string emptyer;
+        std::getline(myfolder, emptyer);
     }
 }

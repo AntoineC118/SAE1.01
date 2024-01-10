@@ -45,7 +45,7 @@ int getreply(){
 std::filesystem::path getpathreply(){
   std::filesystem::path toreturn;
   std::string result;
-  std::cin>>result;
+  result = std::cin.get();
   if(result.find_first_of("/")!=result.find_last_of("/")){
     toreturn = result;
     return toreturn;
