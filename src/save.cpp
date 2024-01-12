@@ -66,5 +66,17 @@ void loadagenda(agenda &topushin, std::filesystem::path path){
 }
 
 void savehmtl(agenda agd){
-    
+    std::filesystem::path path = "agendaweb/"+agd.title+".html";
+    std::ofstream site (path);
+    site<<"<!DOCTYPE html><html lang=\"fr\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Agenda</title><style> body {font-family: Arial, sans-serif;} h1 {text-align: center;} table {width: 100%; border-collapse: collapse; margin-top: 20px;} th, td {border: 1px solid #dddddd; text-align: left; padding: 8px;} th {background-color: #f2f2f2;} </style></head><body> <h1>"
+    <<agd.title<<
+    "</h1><table><thead><tr><th>Date</th><th>Événement</th><th>Description</th></tr></thead><tbody>";
+    for (event towrite : agd.events){
+        site<<"<tr>"<<"<td>"<<towrite.startdate.day<<"/"<<towrite.startdate.month<<"/"<<towrite.startdate.year<<" "<<towrite.startdate.hour<<":"<<towrite.startdate.min
+        <<" - "
+        <<towrite.enddate.day<<"/"<<towrite.enddate.month<<"/"<<towrite.enddate.year<<" "<<towrite.enddate.hour<<":"<<towrite.enddate.min<<"</td>"
+        <<"<td>"<<towrite.title<<"</td>"
+        <<"<td>"<<towrite.description<<"</td>"<<"</tr>";
+    }
+    site<<"</tbody></table></body></html>";
 }

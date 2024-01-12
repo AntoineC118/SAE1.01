@@ -39,7 +39,7 @@ int main(){
             deleteevent(newagenda,title);
             break;
         case 5:
-
+            savehmtl(newagenda);
             break;
         case 6:
             saveagenda(newagenda,path);
