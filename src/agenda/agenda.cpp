@@ -57,11 +57,9 @@ void displayagenda(agenda agd){
 
 std::vector<int> searchevent(const std::vector<event> &tosearch, std::string title){
     std::vector<int> toreturn;
-    for (size_t i; i <= tosearch.size(); i++){
-        std::cout<<tosearch[i].title;
+    for (size_t i = 0; i <= tosearch.size(); i++){
         if (tosearch[i].title == title){
-            toreturn.push_back(i);
-            std::cout<<tosearch[i].title;
+            toreturn.push_back(i);  
         }
     }
     return toreturn;
@@ -72,10 +70,14 @@ void deleteevent(agenda &agd, std::string title){
     std::vector<event> todeleteevent;
     todeleteevent = agd.events;
     posliste = searchevent(todeleteevent, title);
+    std::cout<<posliste[0]<<std::endl;
+    std::cout<<posliste.size()<<std::endl;
     int pos;
     if (posliste.size() == 1){
         pos = posliste[0];
         todeleteevent.erase(todeleteevent.begin()+posliste[0]);
+        agd.events = todeleteevent;
+        std::cout<<todeleteevent.size()<<std::endl;
     }
     else if (posliste.size() == 0){
         std::cout<<"Cet event n'existe pas."<<std::endl;

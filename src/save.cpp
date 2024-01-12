@@ -64,3 +64,7 @@ void loadagenda(agenda &topushin, std::filesystem::path path){
         std::getline(myfolder, emptyer);
     }
 }
+
+void savehmtl(agenda agd){
+    
+}

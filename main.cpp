@@ -34,6 +34,7 @@ int main(){
             newagenda.events.push_back(newevent);
             break;
         case 4:
+            std::cout<<"Entrer le nom de l'événement a supprimé:"<<std::endl;
             title = getstringreply();
             deleteevent(newagenda,title);
             break;
