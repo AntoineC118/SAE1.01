@@ -1,6 +1,6 @@
 #include <iostream>
 #include <filesystem>
-#include "../../include/agenda.hpp"
+#include "agenda.hpp"
 #include <string>
 
 namespace fs = std::filesystem;

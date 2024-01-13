@@ -1,6 +1,6 @@
-all: ./src/menu.cpp main.cpp ./src/agenda/agenda.cpp ./src/events.cpp ./src/save.cpp
-	g++ -Wall -std=c++17 -c ./src/menu.cpp main.cpp ./src/agenda/agenda.cpp ./src/events.cpp ./src/save.cpp
-	g++ -o SAE1.exe menu.o main.o agenda.o events.o	save.o
+all: ./src/menu.cpp main.cpp ./src/agenda.cpp ./src/events.cpp ./src/save.cpp
+	g++ -I./include -Wall -std=c++17 -c src/*.cpp
+	g++ -o SAE1.exe *.o
 
 clear : 
 	rm -rf *.o

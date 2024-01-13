@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
-#include "../include/agenda.hpp"
+#include "agenda.hpp"
 
 void saveagenda(agenda tosave, std::filesystem::path path){
     if(std::filesystem::is_directory(path)) path += tosave.title + ".agd";

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "include/menu.hpp"
-#include "./include/agenda.hpp"
-#include "./include/save.hpp"
+#include "agenda.hpp"
+#include "save.hpp"
 
 int main(){
     agenda newagenda;
