@@ -70,9 +70,7 @@ void deleteevent(agenda &agd, std::string title){
     std::vector<event> todeleteevent;
     todeleteevent = agd.events;
     posliste = searchevent(todeleteevent, title);
-    int pos;
     if (posliste.size() == 1){
-        pos = posliste[0];
         todeleteevent.erase(todeleteevent.begin()+posliste[0]);
         agd.events = todeleteevent;
         std::cout<<todeleteevent.size()<<std::endl;

@@ -34,7 +34,7 @@ int getreply(){
   std::string result;
   std::cin>>result;
   for(size_t i = 1; i <= options.size()+1; i++){
-    size_t pos = result.find(std::to_string(i));
+    int pos = result.find(std::to_string(i));
     if (pos != -1){
       return atoi(&result.at(pos));
     }

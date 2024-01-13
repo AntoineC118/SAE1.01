@@ -73,12 +73,12 @@ date pushdate(std::string sdate){
 
 bool verifydate(date toverify){
     return
-    (toverify.month <= 12) && 
-    (((toverify.month % 2 != 0) && (toverify.month <= 7)) ? toverify.day <= 31 : toverify.day <= 30) ||
-    (((toverify.month % 2 == 0) && (toverify.month <= 8)) ? toverify.day <= 31 : toverify.day <= 30) &&
+    ((toverify.month <= 12) && 
+    (((toverify.month % 2 != 0) && (toverify.month <= 7)) ? toverify.day <= 31 : toverify.day <= 30)) ||
+    ((((toverify.month % 2 == 0) && (toverify.month <= 8)) ? toverify.day <= 31 : toverify.day <= 30) &&
     (((toverify.year % 4) == 0 && (toverify.year % 100) != 0 && (toverify.month == 2)) ? toverify.day <= 29 : toverify.day <= 28) &&
     (toverify.hour < 24) &&
-    (toverify.min < 60);
+    (toverify.min < 60));
 }
 
 void setstartdate(event &tosetdate){
