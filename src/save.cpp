@@ -5,8 +5,6 @@
 
 void saveagenda(agenda tosave, std::filesystem::path path){
     if(std::filesystem::is_directory(path)) path += tosave.title + ".agd";
-    if (!std::filesystem::exists(path)){
-        path = "./agendas/" + tosave.title + ".agd";}
     std::ofstream monfichier(path);
     monfichier<<tosave.title<<std::endl
     <<tosave.description<<std::endl

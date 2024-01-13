@@ -9,10 +9,10 @@ int main(){
     std::filesystem::path path = "";
     choosefolder();
     path = getpathreply();
-    std::cout<<path<<std::endl;
     if (std::filesystem::exists(path))
         loadagenda(newagenda,path);
     else{
+        std::cout<<"Cet agenda n'existe pas. Création d'un nouvelle agenda."<<std::endl;
         modifytitle(newagenda);
         modifydescription(newagenda);
     }
