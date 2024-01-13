@@ -54,7 +54,8 @@ void modifydescription(event &tomodify){
 std::string askdate(std::string what){
     std::string result;
     std::cout<<"Entrer la date de "<<what<<" de l'événement."<<std::endl<<"Merci de respecter le format jj/mm/aaaa_hh:mm"<<std::endl;
-    std::cin>>result;
+    std::cin.ignore();
+    std::getline(std::cin,result);
     return result;
 }
 

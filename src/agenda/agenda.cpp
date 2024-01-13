@@ -9,7 +9,7 @@ std::string askdesc(std::string what){
     std::string result = "";
     std::string line = "";
     std::cout<<"Entrez "<<what<<" de l'agenda."<<std::endl;
-    if(what != "titre"){
+    if(what != "le nouveau titre"){
         do{
             std::getline(std::cin,line);
             line = line + "\n";

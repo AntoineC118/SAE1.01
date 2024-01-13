@@ -52,6 +52,10 @@ std::filesystem::path getpathreply(){
     return toreturn;
   }
   toreturn = "./agendas/" + result;
+  if(toreturn.extension() != ".agd"){
+    result = toreturn;
+    toreturn = result+".agd";
+  }
   return toreturn;
 }
 
