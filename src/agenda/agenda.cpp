@@ -8,7 +8,7 @@ namespace fs = std::filesystem;
 std::string askdesc(std::string what){
     std::string result = "";
     std::string line = "";
-    std::cout<<"Entrer le nouveau "<<what<<" de l'agenda."<<std::endl;
+    std::cout<<"Entrez "<<what<<" de l'agenda."<<std::endl;
     if(what != "titre"){
         do{
             std::getline(std::cin,line);
@@ -29,7 +29,7 @@ bool verifyagenda(){
 }
 
 void modifytitle(agenda &agd){
-    changetitle(askdesc("titre"), agd);
+    changetitle(askdesc("le nouveau titre"), agd);
 }
 
 void changedescription(std::string description , agenda &agd){
@@ -37,7 +37,7 @@ void changedescription(std::string description , agenda &agd){
 }
 
 void modifydescription(agenda &agd){
-    changedescription(askdesc("description"), agd);
+    changedescription(askdesc("la nouvelle description"), agd);
 }
 
 void displayagenda(agenda agd){
@@ -70,8 +70,6 @@ void deleteevent(agenda &agd, std::string title){
     std::vector<event> todeleteevent;
     todeleteevent = agd.events;
     posliste = searchevent(todeleteevent, title);
-    std::cout<<posliste[0]<<std::endl;
-    std::cout<<posliste.size()<<std::endl;
     int pos;
     if (posliste.size() == 1){
         pos = posliste[0];
@@ -84,15 +82,15 @@ void deleteevent(agenda &agd, std::string title){
         return;
     }
     else if (posliste.size() > 1){
-        std::cout<<"Ces events possèdent le même nom, le quel souhaité vous supprimer ?"<<std::endl;
+        std::cout<<"Ces events possèdent le même nom, le quel souhaitez-vous supprimer ?"<<std::endl;
         int counter = 1;
         std::string reply;
         for(int i : posliste){
-            std::cout<<counter<<" "<<todeleteevent[i].title<<std::endl;
+            std::cout<<counter<<" Evénement du: "<<todeleteevent[i].startdate.day<<"/"<<todeleteevent[i].startdate.month<<"/"<<todeleteevent[i].startdate.year<<" "<<todeleteevent[i].startdate.hour<<":"<<todeleteevent[i].startdate.min<<std::endl;
             counter++;
         }
         std::cin>>reply;
-        for (int i; i <= counter; i++){
+        for (int i = 0; i <= counter; i++){
             std::string tosearch = std::to_string(i);
             if (reply.find(tosearch) > 0){
                 todeleteevent.erase(todeleteevent.begin() + posliste[i]);

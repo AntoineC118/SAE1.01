@@ -28,7 +28,6 @@ bool verifyfolder(std::filesystem::path path){
 }
 
 void loadagenda(agenda &topushin, std::filesystem::path path){
-    std::ofstream mytest("./agendas/test");
     std::ifstream myfolder(path);
     event topushout;
     std::string line = "";
@@ -47,7 +46,6 @@ void loadagenda(agenda &topushin, std::filesystem::path path){
         while (line != "."){
             std::getline(myfolder,line);
             topushout.description = topushout.description + line;
-            mytest<<line<<std::endl;
         }
         myfolder>>topushout.startdate.day;
         myfolder>>topushout.startdate.month;
