@@ -54,7 +54,6 @@ void modifydescription(event &tomodify){
 std::string askdate(std::string what){
     std::string result;
     std::cout<<"Entrer la date de "<<what<<" de l'événement."<<std::endl<<"Merci de respecter le format jj/mm/aaaa_hh:mm"<<std::endl;
-    std::cin.ignore();
     std::getline(std::cin,result);
     return result;
 }
@@ -62,16 +61,17 @@ std::string askdate(std::string what){
 
 date pushdate(std::string sdate){
     date newdate;
-    newdate.day = atoi(&sdate.at(0));
-    newdate.month = atoi(&sdate.at(3));
-    newdate.year = atoi(&sdate.at(6));
-    newdate.hour = atoi(&sdate.at(11));
-    newdate.min = atoi(&sdate.at(14));
+    if(sdate.size() == 16){
+        newdate.day = atoi(&sdate.at(0));
+        newdate.month = atoi(&sdate.at(3));
+        newdate.year = atoi(&sdate.at(6));
+        newdate.hour = atoi(&sdate.at(11));
+        newdate.min = atoi(&sdate.at(14));
+    } else std::cout<<"Format non respecté."<<std::endl;
     return newdate;
 }
 
 bool verifydate(date toverify){
-    std::cout<<toverify.day<<"/"<<toverify.month<<"/"<<toverify.year<<" "<<toverify.hour<<":"<<toverify.min<<std::endl;
     return
     (toverify.month <= 12) && 
     (((toverify.month % 2 != 0) && (toverify.month <= 7)) ? toverify.day <= 31 : toverify.day <= 30) ||
