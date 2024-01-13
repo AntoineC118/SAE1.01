@@ -45,6 +45,9 @@ void displayagenda(agenda agd){
     std::cout<<"Description de l'agenda: "<<std::endl<<agd.description;
     std::cout<<std::endl<<"----------------"<<std::endl;
     std::cout<<"Liste des événements:"<<std::endl;
+    if (agd.events.size() == 0){
+        std::cout<<"Aucun événement."<<std::endl;
+    }
     for (event e:agd.events){
         std::cout<<"ID de l'événement: "<<e.id<<std::endl;
         std::cout<<"Titre: "<<e.title<<std::endl;

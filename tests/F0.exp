@@ -1,0 +1,48 @@
+#!/usr/bin/expect -f
+
+set selectionnedfile {"test" "test.agd" "./agendas/test.agd"}
+set time_sleep 0.2
+
+
+file delete ./agendas/test.agd
+
+foreach var $selectionnedfile {
+file delete ./agendas/test.agd
+spawn ./SAE1.exe 
+expect "Entrer le nom suivi de l'extension ou le chemin d'accès de votre fichier:"
+sleep $time_sleep
+send "$var\n"
+expect "Cet agenda n'existe pas. Création d'un nouvelle agenda.
+        Entrez le nouveau titre de l'agenda."
+sleep $time_sleep
+send "test\n"
+expect "Entrez la nouvelle description de l'agenda."
+sleep $time_sleep
+send "test\n"
+sleep $time_sleep
+send ".\n"
+expect "Choose options:
+        (F01) - Modifier le titre et la description de l'agenda
+        (F02) - Afficher le contenu de l'agenda
+        (F03) - Ajouter un événement
+        (F04) - Supprimer un événement
+        (F05) - Exporter l'agenda sous la forme d'une page HTML
+        (F06) - Enregistrer l'agenda
+        (F07) - Quitter l'application"
+sleep $time_sleep
+send "6\n"
+expect "fichier sauvegardé."
+sleep $time_sleep
+send "\n"
+expect "Choose options:
+        (F01) - Modifier le titre et la description de l'agenda
+        (F02) - Afficher le contenu de l'agenda
+        (F03) - Ajouter un événement
+        (F04) - Supprimer un événement
+        (F05) - Exporter l'agenda sous la forme d'une page HTML
+        (F06) - Enregistrer l'agenda
+        (F07) - Quitter l'application"
+sleep $time_sleep
+send "7\n"
+expect eof
+}

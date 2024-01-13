@@ -59,6 +59,10 @@ int main(){
         case 6:
             saveagenda(newagenda,path);
             std::cout << "[200~\x1b[2J\x1b[H";
+            std::cout<< "fichier sauvegardé.";
+            std::cin.ignore();
+            std::cin.get();
+            std::cout << "[200~\x1b[2J\x1b[H";
             counter = 0;
             break;
         case 7:
