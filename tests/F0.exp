@@ -22,26 +22,26 @@ send "test\n"
 sleep $time_sleep
 send ".\n"
 expect "Choose options:
-        (F01) - Modifier le titre et la description de l'agenda
-        (F02) - Afficher le contenu de l'agenda
-        (F03) - Ajouter un événement
-        (F04) - Supprimer un événement
-        (F05) - Exporter l'agenda sous la forme d'une page HTML
-        (F06) - Enregistrer l'agenda
-        (F07) - Quitter l'application"
+(F01) - Modifier le titre et la description de l'agenda
+(F02) - Afficher le contenu de l'agenda
+(F03) - Ajouter un événement
+(F04) - Supprimer un événement
+(F05) - Exporter l'agenda sous la forme d'une page HTML
+(F06) - Enregistrer l'agenda
+(F07) - Quitter l'application"
 sleep $time_sleep
 send "6\n"
 expect "fichier sauvegardé."
 sleep $time_sleep
 send "\n"
 expect "Choose options:
-        (F01) - Modifier le titre et la description de l'agenda
-        (F02) - Afficher le contenu de l'agenda
-        (F03) - Ajouter un événement
-        (F04) - Supprimer un événement
-        (F05) - Exporter l'agenda sous la forme d'une page HTML
-        (F06) - Enregistrer l'agenda
-        (F07) - Quitter l'application"
+(F01) - Modifier le titre et la description de l'agenda
+(F02) - Afficher le contenu de l'agenda
+(F03) - Ajouter un événement
+(F04) - Supprimer un événement
+(F05) - Exporter l'agenda sous la forme d'une page HTML
+(F06) - Enregistrer l'agenda
+(F07) - Quitter l'application"
 sleep $time_sleep
 send "7\n"
 expect eof
