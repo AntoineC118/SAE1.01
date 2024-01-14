@@ -7,6 +7,8 @@ int main(){
     agenda newagenda;
     event newevent;
     std::filesystem::path path = "";
+    std::filesystem::create_directory("./agendas");
+    std::filesystem::create_directory("./agendaweb");
     choosefolder();
     path = getpathreply();
     if (std::filesystem::exists(path))
