@@ -1,0 +1,75 @@
+#!/usr/bin/expect -f
+
+set file "test"
+set time_sleep 0.2
+
+file delete ./agendas/test.agd
+spawn ./SAE1.exe 
+expect "Entrer le nom suivi de l'extension ou le chemin d'accès de votre fichier:"
+sleep $time_sleep
+send "$file\n"
+expect "Cet agenda n'existe pas. Création d'un nouvelle agenda.
+        Entrez le nouveau titre de l'agenda."
+sleep $time_sleep
+send "test\n"
+expect "Entrez la nouvelle description de l'agenda."
+sleep $time_sleep
+send "test\n"
+sleep $time_sleep
+send ".\n"
+expect "Choose options:
+(F01) - Modifier le titre et la description de l'agenda
+(F02) - Afficher le contenu de l'agenda
+(F03) - Ajouter un événement
+(F04) - Supprimer un événement
+(F05) - Exporter l'agenda sous la forme d'une page HTML
+(F06) - Enregistrer l'agenda
+(F07) - Quitter l'application"
+sleep $time_sleep
+send "3\n"
+expect "Entrer le nouveau titre de l'événement."
+sleep $time_sleep
+send "test\n"
+expect "Entrer le nouveau description de l'événement."
+sleep $time_sleep
+send "test\n"
+sleep $time_sleep
+send ".\n"
+expect "Entrer la date de début de l'événement.
+        Merci de respecter le format jj/mm/aaaa_hh:mm"
+sleep $time_sleep
+send "00/00/0000 00:00\n"
+expect "Entrer la date de fin de l'événement.
+        Merci de respecter le format jj/mm/aaaa_hh:mm"
+sleep $time_sleep
+send "00/00/0000 00:00\n"
+expect "Choose options:
+(F01) - Modifier le titre et la description de l'agenda
+(F02) - Afficher le contenu de l'agenda
+(F03) - Ajouter un événement
+(F04) - Supprimer un événement
+(F05) - Exporter l'agenda sous la forme d'une page HTML
+(F06) - Enregistrer l'agenda
+(F07) - Quitter l'application"
+sleep $time_sleep
+send "4\n"
+expect "Entrer le nom de l'événement a supprimé:"
+sleep $time_sleep
+send "test"
+expect "Cet event n'existe pas."
+sleep $time_sleep
+send "\n"
+expect "Choose options:
+(F01) - Modifier le titre et la description de l'agenda
+(F02) - Afficher le contenu de l'agenda
+(F03) - Ajouter un événement
+(F04) - Supprimer un événement
+(F05) - Exporter l'agenda sous la forme d'une page HTML
+(F06) - Enregistrer l'agenda
+(F07) - Quitter l'application"
+sleep $time_sleep
+send "7\n"
+expect "Vous avez effectué des modifications sans sauvegardé, souhaitez vous sauvegardé ? O/N"
+sleep $time_sleep
+send "N\n"
+expect eof
