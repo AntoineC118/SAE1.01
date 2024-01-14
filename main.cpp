@@ -48,13 +48,19 @@ int main(){
         case 4:
             std::cout<<"Entrer le nom de l'événement a supprimé:"<<std::endl;
             title = getstringreply();
+            std::cout << "[200~\x1b[2J\x1b[H";
             deleteevent(newagenda,title);
+            std::cin.ignore();
+            std::cin.get();
             counter++;
             std::cout << "[200~\x1b[2J\x1b[H";
             break;
         case 5:
             savehmtl(newagenda);
             std::cout << "[200~\x1b[2J\x1b[H";
+            std::cout << "export réussi" <<std::endl;
+            std::cin.ignore();
+            std::cin.get();
             break;
         case 6:
             saveagenda(newagenda,path);
