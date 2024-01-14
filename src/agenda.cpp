@@ -60,9 +60,11 @@ void displayagenda(agenda agd){
 
 std::vector<int> searchevent(const std::vector<event> &tosearch, std::string title){
     std::vector<int> toreturn;
-    for (size_t i = 0; i <= tosearch.size(); i++){
-        if (tosearch[i].title == title){
-            toreturn.push_back(i);  
+    if (tosearch.size() != 0){
+        for (size_t i = 0; i <= tosearch.size(); i++){
+            if (tosearch[i].title == title){
+                toreturn.push_back(i);  
+            }
         }
     }
     return toreturn;

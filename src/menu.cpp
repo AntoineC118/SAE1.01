@@ -60,7 +60,7 @@ std::filesystem::path getpathreply(){
 }
 
 void choosefolder(){
-  std::cout<<"Entrer le nom suivi de l'extension ou le chemin d'accès de votre fichier:"<<std::endl;
+  std::cout<<"Entrer le nom ou le chemin d'accès de votre fichier:"<<std::endl;
 }
 
 std::string getstringreply(){
